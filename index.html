@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniHub - Web Xem Hoạt Hình Trực Tuyến</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Head-link (Cố định ở đầu trang) -->
+    <header class="main-header">
+        <div class="logo">
+            <h1>🎬 AniHub</h1>
+        </div>
+        <nav class="head-link">
+            <ul>
+                <li><a href="#" class="active">Trang chủ</a></li>
+                <li><a href="#">Mới cập nhật</a></li>
+                <li><a href="#">Xem nhiều</a></li>
+                <li><a href="#">Thể loại</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="content-container">
+        <!-- Left Content: Danh sách video -->
+        <aside class="left-content">
+            <h3>Danh Sách Phim Hoạt Hình</h3>
+            <ul class="video-list">
+                <li class="video-item active" onclick="changeVideo('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Thế Giới Hoàn Mỹ - Tập 1', 'Phim hoạt hình 3D hấp dẫn, chất lượng Full HD 1080p, thuyết minh tiếng Việt chuẩn xác.')">
+                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=120&q=80" alt="Thumb">
+                    <div>
+                        <h4>Thế Giới Hoàn Mỹ - Tập 1</h4>
+                        <span>25 phút • 120K lượt xem</span>
+                    </div>
+                </li>
+                <li class="video-item" onclick="changeVideo('https://www.youtube.com/embed/tgbNymZ7vqY', 'Đấu Phá Thương Khung - Tập 50', 'Hành trình tu luyện đấu khí đầy gian nan nhưng vô cùng mãn nhãn của Tiêu Viêm.')">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&q=80" alt="Thumb">
+                    <div>
+                        <h4>Đấu Phá Thương Khung - Tập 50</h4>
+                        <span>24 phút • 95K lượt xem</span>
+                    </div>
+                </li>
+                <li class="video-item" onclick="changeVideo('https://www.youtube.com/embed/3JZ_D3ELwOQ', 'Phàm Nhân Tiên Tụ - Tập 30', 'Hành trình bước vào thế giới tu tiên kỳ ảo của Hàn Lập từ một phàm nhân bình thường.')">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=120&q=80" alt="Thumb">
+                    <div>
+                        <h4>Phàm Nhân Tiên Tụ - Tập 30</h4>
+                        <span>22 phút • 80K lượt xem</span>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Right Content: Khu vực xem video -->
+        <main class="right-content">
+            <div class="video-player-box">
+                <div class="video-wrapper">
+                    <iframe id="main-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h2 id="video-title">Thế Giới Hoàn Mỹ - Tập 1</h2>
+                    <p id="video-desc">Phim hoạt hình 3D hấp dẫn, chất lượng Full HD 1080p, thuyết minh tiếng Việt chuẩn xác.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 AniHub. Nền tảng xem phim hoạt hình trực tuyến chọn lọc, không quảng cáo.</p>
+    </footer>
+
+    <!-- Script chuyển đổi video khi click vào danh sách bên trái -->
+    <script>
+        function changeVideo(url, title, desc) {
+            document.getElementById('main-video').src = url;
+            document.getElementById('video-title').innerText = title;
+            document.getElementById('video-desc').innerText = desc;
+            
+            var items = document.querySelectorAll('.video-item');
+            items.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
